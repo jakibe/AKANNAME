@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Akan Name Finder</title>
+    <link
+      href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <!-- Script to pick a date from a calendar-->
+    <script>
+      $(function () {
+        $("#datepicker-6").datepicker({
+          showOn: "button",
+          buttonImage: "media/calicon.png",
+          buttonImageOnly: true,
+          dateFormat: "MM, d yy",
+        });
+      });
+    </script>
+
+    <!-- Script to get the Akan Name-->
+    <script>
+      function getOption() {
+        const weekday = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        var bday = new Date(document.getElementById("datepicker-6").value);
+        let day = weekday[bday.getDay()];
+        let dayt = day.trim();
+        var gender = document.getElementById("myGender").value;
+
+        switch (gender) {
+          case "Female": {
+            switch (dayt) {
+              case "Sunday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Akosua";
+                break;
+              }
+              case "Monday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Adwoa";
+                break;
+              }
+              case "Tuesday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Abenaa";
+                break;
+              }
+              case "Wednesday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Akua";
+                break;
+              }
+              case "Thursday": {
+                document.getElementById("dayp").innerText =
+                  day + "Your Akan Name is Yaa";
+                break;
+              }
+              case "Friday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Afua";
+                break;
+              }
+              case "Saturday": {
+                document.getElementById("dayp").innerText =
+                  day + "Your Akan Name is Ama";
+                break;
+              }
+            }
+          }
+          case "Male": {
+            switch (dayt) {
+              case "Sunday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Kwasi";
+                break;
+              }
+              case "Monday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Kwadwo";
+                break;
+              }
+              case "Tuesday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Kwabena";
+                break;
+              }
+              case "Wednesday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Kwaku";
+                break;
+              }
+              case "Thursday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Yaw";
+                break;
+              }
+              case "Friday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Kofi";
+                break;
+              }
+              case "Saturday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Kwame";
+                break;
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Akan Name Finder</h1>
+    <form>
+      <!--<label for="birthDay">Birthday:</label>-->
+      <!--<input type="text" id="name" name="user_name" />-->
+      <p>Enter your Date of Birth: <input type="text" id="datepicker-6" /></p>
+      Select your gender:
+      <select id="myGender">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <br /><br />
+      <input type="button" onclick="getOption()" value="Submit" />
+    </form>
+    <p id="dayp"></p>
+  </body>
+</html>

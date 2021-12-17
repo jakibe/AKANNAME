@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Akan Name Finder</title>
+    <link
+      href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <!-- Call Script to validate birth date-->
+    <script src="js/scripts.js">
+      function checkForm(form) {
+        if (!checkDate(form.birthdate)) return false;
+        return true;
+      }
+    </script>
+
+    <!-- Script to get the Akan Name-->
+    <script>
+      function getOption() {
+        const weekday = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        var bday = new Date(document.getElementById("birthdate").value);
+        let day = weekday[bday.getDay()];
+        let dayt = day.trim();
+        var gender = document.getElementById("myGender").value;
+
+        switch (gender) {
+          case "Female": {
+            switch (dayt) {
+              case "Sunday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Akosua";
+                break;
+              }
+              case "Monday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Adwoa";
+                break;
+              }
+              case "Tuesday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Abenaa";
+                break;
+              }
+              case "Wednesday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Akua";
+                break;
+              }
+              case "Thursday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Yaa";
+                break;
+              }
+              case "Friday": {
+                document.getElementById("dayp").innerText =
+                  "Your Akan Name is Afua";
+                break;
+              }
+              case "Saturday": {
+                document.getElementById("dayp").innerText =
+                  day + "Your Akan Name is Ama";
+                break;
+              }
+            }
+            break;
+          }
+          case "Male":
+            {
+              switch (dayt) {
+                case "Sunday": {
+                  document.getElementById("dayp").innerText =
+                    "Your Akan Name is Kwasi";
+                  break;
+                }
+                case "Monday": {
+                  document.getElementById("dayp").innerText =
+                    "Your Akan Name is Kwadwo";
+                  break;
+                }
+                case "Tuesday": {
+                  document.getElementById("dayp").innerText =
+                    "Your Akan Name is Kwabena";
+                  break;
+                }
+                case "Wednesday": {
+                  document.getElementById("dayp").innerText =
+                    "Your Akan Name is Kwaku";
+                  break;
+                }
+                case "Thursday": {
+                  document.getElementById("dayp").innerText =
+                    "Your Akan Name is Yaw";
+                  break;
+                }
+                case "Friday": {
+                  document.getElementById("dayp").innerText =
+                    "Your Akan Name is Kofi";
+                  break;
+                }
+                case "Saturday":
+                  {
+                    document.getElementById("dayp").innerText =
+                      "Your Akan Name is Kwame";
+                    break;
+                  }
+                  break;
+              }
+              break;
+            }
+            break;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Akan Name Finder</h1>
+    <form>
+      <fieldset>
+       <p> <label
+          >Enter your Date of Birth:<input
+            type="date"
+            name="birthdate"
+            id="birthdate" required
+        ></label></p>
+      
+      Select your gender:
+      <select id="myGender">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <br /><br />
+      <input type="button" onclick="getOption()" value="Submit" />
+    </form>
+    <p id="dayp"></p>
+    </fieldset>
+  </body>
+</html>
